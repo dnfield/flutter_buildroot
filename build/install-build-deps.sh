@@ -133,9 +133,12 @@ lib32_list="linux-libc-dev:i386"
 arm_list="libc6-dev-armhf-cross
           linux-libc-dev-armhf-cross"
 
-# Work around for dependency issue Debian/Stretch
+# Work around for dependency issue Debian/Stretch and Xenial
 if [ "x$codename" = "xstretch" ]; then
   arm_list+=" g++-5-arm-linux-gnueabihf"
+elif [ "x$codename" = "xxenial" ]; then
+  arm_list+=" g++-5-arm-linux-gnueabihf"
+  arm_list+=" gcc-arm-linux-gnueabihf"
 else
   arm_list+=" g++-arm-linux-gnueabihf"
 fi
